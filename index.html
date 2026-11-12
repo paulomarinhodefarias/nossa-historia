@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nossa História | Netflix</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+    body { background-color: #141414; color: #fff; line-height: 1.5; padding-bottom: 50px; }
+
+    /* Header */
+    header { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent); position: fixed; top: 0; width: 100%; z-index: 10; }
+    .logo { color: #E50914; font-size: 24px; font-weight: bold; letter-spacing: 1px; }
+
+    /* Hero Principal */
+    .hero { height: 70vh; background: linear-gradient(to top, #141414, transparent 60%), linear-gradient(to bottom, rgba(0,0,0,0.5), transparent), url('https://picsum.photos/1200/800?romantic') center/cover no-repeat; display: flex; align-items: flex-end; padding: 0 5% 40px; position: relative; }
+    .hero-content { max-width: 600px; }
+    .badge { background: #E50914; color: #fff; font-size: 12px; font-weight: bold; padding: 4px 8px; border-radius: 2px; text-transform: uppercase; letter-spacing: 1px; }
+    .title { font-size: 42px; font-weight: bold; margin: 10px 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); }
+    .meta-info { font-size: 14px; color: #aaa; margin-bottom: 15px; display: flex; gap: 15px; align-items: center; }
+    .meta-info .match { color: #46d369; font-weight: bold; }
+    .synopsis { font-size: 15px; color: #ddd; text-shadow: 1px 1px 3px rgba(0,0,0,0.8); margin-bottom: 20px; }
+
+    /* Counter */
+    .timer-box { background: rgba(255,255,255,0.1); backdrop-filter: blur(5px); padding: 15px; border-radius: 8px; border-left: 4px solid #E50914; margin-bottom: 25px; display: inline-block; }
+    .timer-title { font-size: 12px; text-transform: uppercase; color: #bbb; letter-spacing: 1px; }
+    .timer-display { font-size: 18px; font-weight: bold; color: #fff; margin-top: 5px; }
+
+    /* Episódios / Momentos */
+    .section-title { font-size: 20px; font-weight: bold; margin: 30px 5% 15px; color: #fff; }
+    .episodes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; padding: 0 5%; }
+    .episode-card { background: #181818; border-radius: 6px; overflow: hidden; transition: transform 0.3s; }
+    .episode-card:hover { transform: scale(1.03); }
+    .episode-img { width: 100%; height: 160px; object-fit: cover; }
+    .episode-info { padding: 15px; }
+    .episode-num { font-size: 12px; color: #E50914; font-weight: bold; }
+    .episode-title { font-size: 16px; font-weight: bold; margin: 5px 0; }
+    .episode-desc { font-size: 13px; color: #999; }
+
+    /* Player de Áudio Flutuante */
+    .audio-player { position: fixed; bottom: 20px; right: 20px; background: rgba(0,0,0,0.85); border: 1px solid #333; padding: 10px 15px; border-radius: 30px; display: flex; align-items: center; gap: 10px; z-index: 100; }
+    .audio-player span { font-size: 12px; color: #fff; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">OURFLIX</div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <span class="badge">Série Original</span>
+      <h1 class="title">Nossa História de Amor</h1>
+      <div class="meta-info">
+        <span class="match">100% Relevância</span>
+        <span>2026</span>
+        <span>Livre</span>
+        <span>Para Sempre</span>
+      </div>
+      <p class="synopsis">
+        Uma história incrível sobre duas pessoas que se encontraram, superaram desafios juntas e decidiram construir o futuro lado a lado.
+      </p>
+
+      <div class="timer-box">
+        <div class="timer-title">Juntos Há:</div>
+        <div class="timer-display" id="love-timer">Carregando tempo...</div>
+      </div>
+    </div>
+  </section>
+
+  <h2 class="section-title">Episódios (Principais Momentos)</h2>
+
+  <div class="episodes-grid">
+    <div class="episode-card">
+      <img class="episode-img" src="https://picsum.photos/400/250?1" alt="Nosso Primeiro Encontro">
+      <div class="episode-info">
+        <span class="episode-num">EPISÓDIO 1</span>
+        <h3 class="episode-title">O Primeiro Olhar</h3>
+        <p class="episode-desc">Onde tudo começou. Aquele primeiro abraço e a certeza de que algo especial estava nascendo.</p>
+      </div>
+    </div>
+
+    <div class="episode-card">
+      <img class="episode-img" src="https://picsum.photos/400/250?2" alt="Nossa Primeira Viagem">
+      <div class="episode-info">
+        <span class="episode-num">EPISÓDIO 2</span>
+        <h3 class="episode-title">Pé na Estrada</h3>
+        <p class="episode-desc">Nossa primeira viagem marcante, com muitas risadas e lembranças inesquecíveis.</p>
+      </div>
+    </div>
+
+    <div class="episode-card">
+      <img class="episode-img" src="https://picsum.photos/400/250?3" alt="Momentos Especiais">
+      <div class="episode-info">
+        <span class="episode-num">EPISÓDIO 3</span>
+        <h3 class="episode-title">O Pedido</h3>
+        <p class="episode-desc">Um dos dias mais felizes e marcantes da nossa caminhada juntos.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Player de Áudio (coloque o link da sua música em mp3) -->
+  <div class="audio-player">
+    <span>🎵 Música do Casal</span>
+    <audio controls autoplay loop style="height: 30px; width: 180px;">
+      <source src="SUA_MUSICA.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <script>
+    // DEFINE A DATA EM QUE VOCÊS COMEÇARAM A NAMORAR (Ano, Mês - 1, Dia, Hora, Minuto)
+    // Atenção: no JavaScript os meses vão de 0 (Janeiro) a 11 (Dezembro).
+    const startDate = new Date(2022, 5, 12, 20, 0, 0); // Exemplo: 12 de Junho de 2022 às 20:00
+
+    function updateTimer() {
+      const now = new Date();
+      const diff = now - startDate;
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / 1000 / 60) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById('love-timer').innerText = 
+        `${days} dias, ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    setInterval(updateTimer, 1000);
+    updateTimer();
+  </script>
+</body>
+</html>
